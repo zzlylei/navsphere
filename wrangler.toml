@@ -11,5 +11,5 @@ GITHUB_OWNER = "zzlylei"
 GITHUB_REPO = "NavSphere"
 GITHUB_BRANCH = "main"
 NEXTAUTH_URL = "https://w.zr99.top/api/auth"
-NEXT_PUBLIC_API_URL="https://w.zr99.top"
+NEXT_PUBLIC_API_URL="https://w.zr99.top/"
 
