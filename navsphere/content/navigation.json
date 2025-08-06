@@ -22,6 +22,14 @@
           "enabled": true
         },
         {
+          "id": "1754481931904",
+          "title": "嗖 | 一个无聊之人搭建的博客",
+          "href": "https://k.zr99.top",
+          "description": "一个无聊之人搭建的博客",
+          "icon": "https://k.zr99.top",
+          "enabled": true
+        },
+        {
           "id": "1_2",
           "title": "Vercel",
           "href": "https://vercel.com/",
@@ -51,14 +59,6 @@
           "href": "https://app.leonardo.ai/",
           "description": "Leonardo.AI是一个人工智能绘图社区和工具。它基于Stable Diffusion人工智能模型,深度集成了其各种插件,提供强大的图片生成和创作功能。",
           "icon": "/assets/images/logos/leonardo.ico",
-          "enabled": true
-        },
-        {
-          "id": "1754481931904",
-          "title": "嗖 | 一个无聊之人搭建的博客",
-          "href": "https://k.zr99.top",
-          "description": "一个无聊之人搭建的博客",
-          "icon": "https://k.zr99.top",
           "enabled": true
         },
         {
