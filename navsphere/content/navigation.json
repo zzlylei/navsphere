@@ -92,6 +92,14 @@
           "description": "Beautiful & consistent icon toolkit made by the community.",
           "icon": "/assets/favicon_1754229702059.ico",
           "enabled": true
+        },
+        {
+          "id": "1754481931904",
+          "title": "嗖 | 一个无聊之人搭建的博客",
+          "href": "https://k.zr99.top",
+          "description": "一个无聊之人搭建的博客",
+          "icon": "https://k.zr99.top",
+          "enabled": true
         }
       ],
       "subCategories": [],
