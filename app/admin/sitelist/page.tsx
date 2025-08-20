@@ -330,10 +330,25 @@ export default function SiteListPage() {
         event.preventDefault()
         setSelectedSites([])
       }
-      // Ctrl+A 全选
-      if (event.ctrlKey && event.key === 'a' && filteredSites.length > 0) {
-        event.preventDefault()
-        setSelectedSites(filteredSites.map(site => site.id))
+      // Ctrl+A 处理
+      if (event.ctrlKey && event.key === 'a') {
+        const activeElement = document.activeElement
+        const isInputFocused = activeElement && (
+          activeElement.tagName === 'INPUT' ||
+          activeElement.tagName === 'TEXTAREA' ||
+          activeElement.hasAttribute('contenteditable')
+        )
+
+        // 如果有弹窗打开或者输入框有焦点，让浏览器处理默认行为（选中输入框内容）
+        if (showAddDialog || showEditDialog || isInputFocused) {
+          return // 不阻止默认行为，让输入框正常选中内容
+        }
+
+        // 只有在主列表区域且有站点时才全选站点
+        if (filteredSites.length > 0) {
+          event.preventDefault()
+          setSelectedSites(filteredSites.map(site => site.id))
+        }
       }
     }
 
@@ -341,7 +356,7 @@ export default function SiteListPage() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [selectedSites, showDeleteDialog, filteredSites])
+  }, [selectedSites, showDeleteDialog, filteredSites, showAddDialog, showEditDialog])
 
   const handleSelectAll = (checked: boolean | string) => {
     if (checked === true) {
@@ -985,12 +1000,24 @@ export default function SiteListPage() {
               </span>
             </div>
             <div className="flex gap-4">
-              <Input
-                placeholder="搜索站点..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="max-w-sm"
-              />
+              <div className="relative max-w-sm">
+                <Input
+                  placeholder="搜索站点..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pr-8"
+                />
+                {searchQuery && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="absolute right-1 top-1/2 -translate-y-1/2 h-6 w-6 p-0 hover:bg-muted"
+                    onClick={() => setSearchQuery('')}
+                  >
+                    <Icons.x className="h-3 w-3" />
+                  </Button>
+                )}
+              </div>
               <Select
                 value={categoryFilter}
                 onValueChange={(value) => {
@@ -1801,7 +1828,7 @@ export default function SiteListPage() {
             <AlertDialogHeader>
               <AlertDialogTitle>确认删除站点</AlertDialogTitle>
               <AlertDialogDescription>
-                确定要删除站点 "{deletingSite?.name}" 吗？此操作无法撤销。
+                确定要删除站点 &ldquo;{deletingSite?.name}&rdquo; 吗？此操作无法撤销。
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
