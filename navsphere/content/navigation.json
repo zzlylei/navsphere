@@ -100,6 +100,14 @@
           "description": "Beautiful & consistent icon toolkit made by the community.",
           "icon": "/assets/favicon_1754229702059.ico",
           "enabled": true
+        },
+        {
+          "id": "site_1757164870460_n3x5nbdnt",
+          "title": "自建vpn",
+          "href": "https://zj.zr99.top/999999",
+          "description": "",
+          "icon": "https://zj.zr99.top/favicon.ico",
+          "enabled": true
         }
       ],
       "subCategories": [],
@@ -562,16 +570,7 @@
       "id": "2",
       "title": "常用工具",
       "icon": "Laptop",
-      "items": [
-        {
-          "id": "site_1757164870460_n3x5nbdnt",
-          "title": "自建vpn",
-          "href": "https://zj.zr99.top/999999",
-          "description": "",
-          "icon": "https://zj.zr99.top/favicon.ico",
-          "enabled": true
-        }
-      ],
+      "items": [],
       "subCategories": [
         {
           "id": "3",
