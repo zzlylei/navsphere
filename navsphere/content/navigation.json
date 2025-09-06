@@ -14,14 +14,6 @@
           "enabled": true
         },
         {
-          "id": "1_4",
-          "title": "自建网盘",
-          "href": "https://yunpan.zr99.top/",
-          "description": "自建网盘",
-          "icon": "/assets/images/logos/gads.ico",
-          "enabled": true
-        },
-        {
           "id": "1757165219133",
           "title": "SaltyLeo 的书架",
           "href": "https://tstrs.me/",
@@ -127,6 +119,14 @@
           "href": "https://zj.zr99.top/999999",
           "description": "自建VPN",
           "icon": "https://zj.zr99.top/favicon.ico",
+          "enabled": true
+        },
+        {
+          "id": "1_4",
+          "title": "自建网盘",
+          "href": "https://yunpan.zr99.top/",
+          "description": "自建网盘",
+          "icon": "/assets/images/logos/gads.ico",
           "enabled": true
         }
       ],
