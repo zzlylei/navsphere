@@ -5,25 +5,6 @@ import type { NavigationData, NavigationItem } from '@/types/navigation'
 
 export const runtime = 'edge'
 
-export async function GET(
-  request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  try {
-    const { id } = await params
-    const data = await getFileContent('navsphere/content/navigation.json') as NavigationData
-    const item = data.navigationItems.find(item => item.id === id)
-    
-    if (!item) {
-      return new Response('Not Found', { status: 404 })
-    }
-
-    return NextResponse.json(item)
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch navigation item' }, { status: 500 })
-  }
-}
-
 export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -50,8 +31,25 @@ export async function PUT(
       ...updatedItem,
       id: id,
       items: updatedItem.items || existingItem.items || [],
-      subCategories: updatedItem.subCategories || existingItem.subCategories || []
-    }
+      subCategories: [
+        ...(
+          [
+            ...(existingItem.subCategories || []),
+            ...(updatedItem.subCategories || [])
+          ].reduce((acc, sub) => {
+            const exist = acc.get(sub.id);
+            acc.set(sub.id, {
+              ...exist,
+              ...sub,
+              items: [
+                ...(exist?.items || []),
+                ...(sub.items || [])
+              ]            });
+            return acc;
+          }, new Map<string, NavigationItem>())
+        ).values()
+      ]   
+     }
 
     const updatedItems = data.navigationItems.map(item => 
       item.id === id ? mergedItem : item
@@ -68,33 +66,5 @@ export async function PUT(
   } catch (error) {
     console.error('Update error:', error)
     return NextResponse.json({ error: 'Failed to update navigation' }, { status: 500 })
-  }
-}
-
-export async function DELETE(
-  request: Request,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  try {
-    const { id } = await params
-    const session = await auth()
-    if (!session?.user?.accessToken) {
-      return new Response('Unauthorized', { status: 401 })
-    }
-
-    const data = await getFileContent('navsphere/content/navigation.json') as NavigationData
-    const updatedItems = data.navigationItems.filter(item => item.id !== id)
-
-    await commitFile(
-      'navsphere/content/navigation.json',
-      JSON.stringify({ navigationItems: updatedItems }, null, 2),
-      'Delete navigation item',
-      session.user.accessToken
-    )
-
-    return NextResponse.json({ success: true })
-  } catch (error) {
-    console.error('Delete error:', error)
-    return NextResponse.json({ error: 'Failed to delete navigation' }, { status: 500 })
   }
 }
