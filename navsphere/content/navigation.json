@@ -932,6 +932,15 @@
           ]
         }
       ]
+    },
+    {
+      "id": "1757172274027",
+      "title": "自建网站",
+      "icon": "FolderKanban",
+      "description": "",
+      "enabled": true,
+      "items": [],
+      "subCategories": []
     }
   ]
 }
