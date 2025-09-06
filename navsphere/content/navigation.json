@@ -108,6 +108,14 @@
           "description": "Beautiful & consistent icon toolkit made by the community.",
           "icon": "/assets/favicon_1754229702059.ico",
           "enabled": true
+        },
+        {
+          "id": "1757165219133",
+          "title": "SaltyLeo 的书架",
+          "href": "https://tstrs.me/",
+          "description": "SaltyLeo 的书架，藏尽天下好书。电子书下载, EPUB电子书, AZW3电子书, MOBI电子书, KINDLE电子书, PDF电子书",
+          "icon": "/assets/favicon_1757165232501.png",
+          "enabled": true
         }
       ],
       "subCategories": [],
