@@ -30,6 +30,14 @@
           "enabled": true
         },
         {
+          "id": "1757165219133",
+          "title": "SaltyLeo 的书架",
+          "href": "https://tstrs.me/",
+          "description": "SaltyLeo 的书架，藏尽天下好书。电子书下载, EPUB电子书, AZW3电子书, MOBI电子书, KINDLE电子书, PDF电子书",
+          "icon": "/assets/favicon_1757165232501.png",
+          "enabled": true
+        },
+        {
           "id": "1754481931904",
           "title": "嗖 | 一个无聊之人搭建的博客",
           "href": "https://k.zr99.top",
@@ -75,14 +83,6 @@
           "href": "https://tensor.art/",
           "description": "Tensor.art是一个免费的在线图像生成和模型托管平台。",
           "icon": "/assets/images/logos/tensorart.ico",
-          "enabled": true
-        },
-        {
-          "id": "1757165219133",
-          "title": "SaltyLeo 的书架",
-          "href": "https://tstrs.me/",
-          "description": "SaltyLeo 的书架，藏尽天下好书。电子书下载, EPUB电子书, AZW3电子书, MOBI电子书, KINDLE电子书, PDF电子书",
-          "icon": "/assets/favicon_1757165232501.png",
           "enabled": true
         },
         {
